@@ -1,0 +1,104 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+#include <ctime>
+#include <cstdlib>
+using namespace std;
+int main() {
+    int n,positive=0,negative=0;
+    double total=0.0;
+
+    cout<<"Enter an integer,input ends if it is 0: ";
+    cin>>n;
+
+    while (n!=0) {
+        total+=n;
+        cout<<"Enter an integer,input ends if it is 0: ";
+        cin>>n;
+    if (n>=0)
+        positive++;
+    else if (n<0)
+        negative++;
+     }
+    double average=total/(positive+negative);
+     cout<<"Average= "<<average<<endl;
+    cout<<"Total= "<<total<<endl;
+    cout<<"Positive "<<positive<<endl;
+    cout<<"Negative "<<negative<<endl;
+
+
+    int count=1,i;
+    cout<<"Enter how many * want";
+    cin>>i;
+    for (count;count<=i;count++) {
+        for (int j=1;j<=i;j++) {
+            cout<<"*";
+
+        }
+     cout<<endl; }
+    int count=1,i;
+    cout<<"Enter height of triangle";
+    cin>>i;
+    for (count;count<=i;count++) {
+        for (int j=1;j<=count;j++) {
+            cout<<"*";
+        }
+         cout<<endl;}
+    int  depth;
+      cout<<"Enter depth of triangle ";
+      cin>>depth;
+      int n=depth;
+      for (int i=1;i<=depth;i++) {
+          for (int j=1;j<=i;j++) {
+              cout<<i;
+
+           }
+          cout<<endl;}
+
+
+
+    double rate=1.03,price,total=0.0;
+      int fixed=1000;
+    price=rate*fixed;
+    for (int i=1;i<=5;i++) {
+
+      cout<<"For year "<<i<<"rent is "<<price << endl;
+        price *=rate;
+      total+=price;
+    }
+    int n,sum;
+    cout<<"enter digit";
+    cin>>n;
+    while (1<n) {
+      double n1=n%10;
+       sum+=n1;
+       n=n/10;}
+    cout<<sum;
+    int  mile=1;
+    cout<<"mile: "<<"killomters    "<<endl;
+    cout<<"--------------------------"<<endl;
+    cout<<fixed<<showpoint<<setprecision(2);
+    for (mile=1;mile<=10;mile++) {
+     double    kilomters=mile*1.609;
+    cout<<setw(8)<<mile<<setw(8)<<kilomters<<endl;}
+    srand(time(0));
+
+    int count=0;
+    int odd=0,even=0;
+    while (count<1000) {
+        int num=rand();
+        if (num%2==0) {
+            even++;
+        }
+        else odd++;
+        count++;
+    }
+        cout<<"ODD "<<odd<<endl;
+        cout<<"EVEN "<<even<<endl;
+
+
+
+
+
+         return 0;
+     }
