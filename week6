@@ -1,0 +1,203 @@
+#include <iomanip>
+#include <iostream>
+
+#include <iostream>
+ using namespace std;
+int num(int num,int num1);
+double acceleration(double,double,double);
+double fun(double n);
+float square(float x,float y);
+double square(double x,double y);
+void swap(int &a,int&b);
+int gcd(int a,int b);
+int factorial( int n) {
+    int fact=1;
+    for (int i;i<=n;i++) {
+        fact*=i;
+    }
+    return fact;
+}
+int max(int a,int b,int c) {
+    if (a>b && a>c)
+        return a;
+    else if (b>c && b>a)
+        return b;
+    else
+        return c;
+}
+int min(int a,int b ,int c) {
+    if (a<b && a<c)
+        return a;
+    else if (b<c && b<a)
+        return b;
+    else
+        return c;}
+double sum(double a,double b) {
+    return a+b;
+}
+double sub(double a,double b) {
+    return a-b;
+}
+double mul(double a,double b)
+ {
+     return a*b;
+ }
+double div(double a,double b)
+ {
+     return a/b;
+ }
+int getTrian(int n);
+void even(int n) {
+    cout<<"even digits: ";
+    if (n<0)
+        n=-n;
+    if (n==0)
+        cout<<0<<" ";
+    while (n>0) {
+        int digit=n%10;
+        if ( digit%2==0)
+            cout<<digit<<" ";
+        n=n/10;
+    }
+
+    cout<<endl;
+}
+void print(char ch1,char ch2,int numberperline)
+{
+    for (int i=97;i<=122;i++) {
+        cout<<static_cast<char>(i);
+        if (i%numberperline==0) {
+            cout<<endl;
+        }
+    }
+}
+bool palanandrome(int num) {
+    int org=num;
+    int reversed=0;
+    while (num>0) {
+    reversed=reversed*10+num%10;
+        num=num/10;
+
+    }
+    return org==reversed;
+}
+ int main(){
+    print('a','z',6);
+    int count=0;
+    int num=0;
+    cout<<"First 50 numbers";
+    while (count<50) {
+        if (num%2==0 && palanandrome(num)) {
+            cout<<setw(6)<<num;
+            count++;
+        }
+        if (count%5==0)
+            cout<<endl;
+    num++;}
+    int a,b;
+    cout<<"Entert two numbers";
+    cin>>a>>b;
+    cout<<num(a,b);
+    cout<<"Ente v2 and v2 and time";
+    double v1,v2,t;
+    cin>>v1>>v2>>t;
+  cout<<"Acceleration : "<<acceleration(v1,v2,t);
+    double radius;
+    cout<<"Enter radius: ";
+    cin>>radius;
+    cout<<fun(radius);
+    double w,l;
+    float wf,lf;
+    cout<<"Enter width and height: ";
+    cin>>w>>l;
+    cout<<square(w,l)<<endl;
+    cout<<"Enter again";
+    cin>>wf>>lf;
+   cout<<square(wf,lf)<<endl;
+    int a,b;
+    cout<<"Enter two numbers: ";
+    cin>>a>>b;
+    swap(a,b);
+cout<<"enter number to get factorial";
+    int num;
+    cin>>num;
+    cout<<factorial(num)<<endl;
+int num1,num2;
+    cout<<"Enter the first number:";
+    cin>>num1>>num2;
+    cout<<"GCD OF "<<gcd(num1,num2)<<endl;
+    int a,b,c;
+    cout<<"Enter 3 numbers and i will tell you max and min: ";
+    cin>>a>>b>>c;
+    cout<<"The maximum number is "<<max(a,b,c)<<endl;
+    cout<<"The minimum number is "<<min(a,b,c)<<endl;
+     cout<<"WHhat you want with two numbers and enter them ";
+     double num1,num2;
+     cin>>num1>>num2;
+     cout<<" 1- add,2-divide,3-multiply or 4-subtract,5 to quit ";
+     int choice;
+     cin>>choice;
+     switch(choice) {
+         case 1:cout<<sum(num1,num2);
+             break;
+         case 2:cout<<div(num1,num2);
+             break;
+         case 3:cout<<mul(num1,num2);
+             break;
+         case 4:cout<<sub(num1,num2);
+             break;
+         case 5:cout<<"Quit";
+             break;
+         default : while (choice<1 || choice>5) {
+             cout<<"Please choose one of the following options:";
+             cin>>choice;
+         }
+     }
+     getTrian(75);
+    cout<<"Enter number: ";
+    int n;
+    cin>>n;
+    even(n);
+     return 0;}
+int getTrian(int n) {
+     int m=0;
+     for (int i=1;i<=75;i++){
+         m=i*(i+1)/2;
+         cout<<m<<" ";
+         if (i%5==0)
+             cout<<endl;
+     } return m;
+ }
+
+int gcd(int a,int b) {
+    while (b!=0) {
+        int temp=b;
+        b=a%b;
+        a=temp;
+    }
+    return a;
+}
+void swap(int &a,int &b){
+    int temp=a;
+    a=b;
+    b=temp;
+    cout<<"After swapping: "<<a<<" "<<b<<endl;
+}
+
+int num(int num1,int num2) {
+    return num1*num2;
+}
+double acceleration(double v1,double v2,double t) {
+    return (v1-v2)/t;
+}
+double fun(double n) {
+    return n*n*3.14;
+}
+double square(double x,double y) {
+    double result=x*y;
+    return result;
+
+}
+float  square(float x,float y) {
+    float result=2*x+2*y;
+return result;}
