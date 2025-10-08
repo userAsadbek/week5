@@ -1,0 +1,147 @@
+#include <iostream>
+
+using namespace std;
+void deposit();
+void withdraw();
+void balance();
+void price(int n,int p);
+void kapitan();
+void hulk();
+void ironman();
+double initial=500;
+void fee();// TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+int main() {
+    int choice=1;
+    do{
+    cout<<"Food menu options:"<<endl;
+    int pizza=10,burger=8,salad=5;
+    cout<<"1.Pizza $10,2.Burger $8,3. Salad $5,or 0 to quit "<<endl;
+
+    cin>>choice;
+        cout<<"QUANTITY:"<<endl;
+        int quantity;
+        cin>>quantity;
+    switch(choice) {
+        case 1:price(pizza,quantity); break;
+        case 2:price(burger,quantity);break;
+        case 3:price(salad,quantity);break;
+        case 0:cout<<"Program terminated"<<endl;
+        default :cout<<"Wrong choice,chooise agin";
+           break;
+
+    }
+
+}
+    while (choice!=0); // PROBLEM 1
+cout<<endl<<endl;
+ int choice=1;
+do {
+    cout<<"What you want with your money."<<endl;
+    cout<<"1.DEPOSIT,2.WITHDRAW,3.CHECK balance,4 to quit"<<endl;
+    cout<<"Enter choice";
+    cin>>choice;
+    switch (choice) {
+        case 1:deposit(); break;
+            case 2:withdraw(); break;
+        case 3:balance(); break;
+            case 4:cout<<"Exiting"; break;
+        default:cout<<"Invalid choice"; break;
+    }
+}while (choice!=4);  //Problem 2
+    cout<<endl<<endl;
+   int option=0;
+    do {
+
+        cout<<"There 3 movie options\n ";
+        cout<<"1. KAPITAN AMERIKA $8 per ticket\n";
+        cout<<"2. IRONMAN $12 per ticket\n";
+        cout<<"3. XULK v PRIME $6 per ticket\n";
+        cout<<"4.To exit\n ";
+        cout<<"Choose an option: ";
+
+        cin>>option;
+        switch(option) {
+            case 1:kapitan();break;
+            case 2:ironman();break;
+            case 3:hulk();break;
+            case 4:cout<<"Program finished"; break;
+            default:cout<<"Choose again or 4 to quit ";
+                 break;
+        }
+    }while(option!=4);
+    cout<<endl<<endl;
+ //Problem 3
+    cout<<"This program calculate cost of parking for cars\n";
+    cout<<"Enter numbers of cars";
+    int num;
+    cin>>num;
+    int i=1;
+    while (i<=num) {
+     fee();
+       i++;
+    } //problem 4
+    return 0;
+    // TIP See CLion help at <a href="https://www.jetbrains.com/help/clion/">jetbrains.com/help/clion/</a>. Also, you can try interactive lessons for CLion by selecting 'Help | Learn IDE Features' from the main menu.
+}
+void fee() {
+    cout<<"Enter numbers of hours stayed in parking";
+    int hours;
+    cin>>hours;
+    if (hours<=2) {
+        cout<<"FREE parking\n ";
+    }
+    else if (hours>2 && hours<=5) {
+        int cost=2;
+        cout<<"Cost is "<<cost*hours<<endl;
+    }
+        else if (hours>5) {
+            int cost=6;
+            cout<<"Cost is "<<cost*hours<<endl;
+        }
+    }
+void kapitan() { int n=8;
+    cout<<"Enter number of ticker you want buy";
+    int num;
+    cin>>num;
+    cout<<"You will pay for it "<<num*n<<endl<<endl;
+}
+void ironman() {
+    int n=12;
+    cout<<"Enter number of ticker you want buy";
+    int num;
+    cin>>num;
+    cout<<"You will pay for it "<<num*n<<endl<<endl;
+}
+void hulk() {
+    int n=6;
+    cout<<"Enter number of ticker you want buy";
+    int num;
+    cin>>num;
+    cout<<"You will pay for it "<<num*n<<endl<<endl;
+}
+
+void withdraw() {
+    double withdrawl;
+    cout<<"Enter withdraw amount:"<<endl;
+    cin>>withdrawl;
+    if (withdrawl>initial) {
+        cout<<"The amount of money you want take not available in balance\n";
+    }
+    else {
+        initial-=withdrawl;
+    }
+}
+void balance() {
+    cout<<initial<<endl;
+}
+void deposit() {
+    double deposit;
+    cout<<"Enter deposit";
+    cin>>deposit;
+  initial+=deposit;
+}
+void price(int n,int p ) {
+
+  double  price=n*p;
+    cout<<"Total price is "<<price<<endl;
+}
