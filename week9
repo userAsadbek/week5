@@ -1,0 +1,138 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+int power(int a,int b) {
+    if (b==0) return 1;
+    return a*power(a,b-1);
+}
+int reverse(int a,int b=0) {
+    if (a==0) return b;
+    return reverse(a/10,b*10+a%10);
+}
+bool isPalin(int x) {
+    if (x<0) return false;
+    return x==reverse(x);
+
+}
+bool isPrime(int z,int a=2) {
+    if (z<=1) return false;
+    if (z==2) return true;
+    if (z%a==0) return false;
+    if (a*a>z) return true;
+    return isPrime(z,a+1);
+}
+int countDigits(int x) {
+    if (x==0) return 0;
+    if (x<0) x=-x;
+    if (x<10) return 1;
+    return 1+countDigits(x/10);
+}
+int productdigits(int x) {
+    if (x==0) return 1;
+    return (x%10)*productdigits(x/10);
+}
+bool powerofTwo(int x) {
+    if (x<=0) return false;
+    if (x==1) return true;
+    if (x%2!=0) return false;
+    return powerofTwo(x/2);
+}
+
+bool isIncrease(int x, int prevDigit = -1) {
+    if (x == 0) return true;
+    int currentDigit = x % 10;
+    if (currentDigit >= prevDigit) return false;
+    return isIncrease(x / 10, currentDigit);
+}
+int zero(int x) {
+    if (x==0) return 0;
+    if (x%10==0)  return 1+zero(x/10);
+    return 0+zero(x/10);
+}
+int powerm(int a,int b) {
+    if (b==0) return 1;
+    if (b%2==0) {
+        int half=powerm(a,b/2)*powerm(a,b/21);
+     return half*half;}
+    return a*powerm(a,b-1);
+}
+// int zeroes(int x, int y=0) {
+//     if (x==) return 1;
+//     if (x/10>)
+//
+//     return y+zeroes(x%10,x/10)
+// }
+
+int Josephus(int n, int k) {
+  if (n==1) return 1;
+    if (n<1) return 0;
+   return  (Josephus(n-1,k)+k-1)%n+1;
+}
+int main() {
+int a,b;
+    cout<<"enter the number and its power";
+    cin>>a>>b;
+    cout<<"power is "<<power(a,b); //first problem
+    cout<<endl;
+
+    int result;
+    cout<<"Enter number to reverse";
+    cin>>result;
+    cout<<"reverse of a "<<reverse(result); // second problem
+    cout<<endl;
+
+
+    int isPalindrome;
+    cout<<"Enter a number and program till you is it palindrome: ";
+    cin>>isPalindrome;
+    cout<<" 0 MEANS No and 1 means yes, "<<isPalin(isPalindrome); // third problem
+    cout<<endl;
+
+  int Prime1;
+    cout<<"Enter number and 1 for it is prime and 0 it is not";
+    cin>>Prime1;
+    cout<<"NUM IS "<<isPrime(Prime1)<<endl; // fourth problem
+   cout<<endl;
+
+      int num;
+    cout<<"TO COUNT DIGITS ENTER NUM";
+    cin>>num;
+    cout<<"Number of digits "<<countDigits(num); // problem 5
+
+  int prodigits;
+    cout<<"enter digits and it will tell its digits prodocuts";
+    cin>>prodigits;
+    cout<<" product of digits are "<<productdigits(prodigits); //problem 6
+    cout<<endl;
+
+  int power2;
+    cout<<"Enter the number and i will tell you is it power of 2 ";
+    cin>>power2;
+    cout<<"1 for true and 0 for false, answer is "<<powerofTwo(power2)<<endl; //probem 7
+   cout<<endl;
+
+  int increase;
+    cout<<"Enter numb and i will tell you is it increase order";
+    cin>>increase;
+    cout<<"0 and 1 "<<isIncrease(increase)<<endl; // problem 8
+    cout<<endl;
+
+
+  int zero1;
+    cout<<"Enter num i will find you zeroes";
+    cin>>zero1;
+    cout<<"Number of zero "<<zero(zero1);
+    cout<<endl;   //problem 9
+
+    int powa,powb;
+    cout<<"Enter the number and  power of a number: ";
+    cin>>powa>>powb;
+    cout<<"Power of "<<powa<<" and "<<powb<<" is "<<powerm(powa,powb)<<endl; // problem 10
+    cout<<endl;
+
+      int n,k;
+    cout<<"Enter the number of people and steps to it: ";
+    cin>>n>>k;
+    cout<<"result is "<<Josephus(n,k)<<endl; //problem 11
+
+return 0; }
