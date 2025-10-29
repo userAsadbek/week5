@@ -1,0 +1,101 @@
+#include <iostream>
+#include <algorithm>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+void Reverse(int arr[],int size) {
+    cout<<"Reversed array ";
+    for (int i=size-1;i>=0;i--) {
+        cout<<arr[i]<<" ";
+    }
+}
+bool IsQual(const int list[], const int list2[], int size) {
+    for (int i = 0; i < size; ++i) {
+        if (list[i] != list2[i]) return false;}
+     return true; }
+void Sort(int arr[],int size) {
+    bool sorted = true;
+    for (int i=1;i<size;i++) {
+        if (arr[i]<arr[i-1]) {
+            sorted = false;
+            break;
+        }
+    }
+ if (sorted) cout<<"Yes ascending order"<<endl;
+else cout<<"Not ascending "<<endl;}
+
+int main() {
+    srand(time(0));
+    int n;
+    cout<<"Enter number of elements: ";
+    cin >> n;
+    int list1[n];
+    int list2[n];
+    cout<<"Enter elements for list 1 "<<endl;
+      for (int i = 0; i < n; i++) {
+        cin>>list1[i];
+        cout<<" "; }
+    cout<<"Enter elements for list 2 "<<endl;
+       for (int i = 0; i < n; i++) {
+        cin>>list2[i];
+    }
+       bool question=IsQual(list1,list2,n);
+       if (question==true) cout<<"Stringly identical";
+       if (question==false) cout<<"Not identical";  //Question 5
+
+    int freq[26]={0};
+    char ch;
+    cout<<"\n Enter characters and end with 0";
+    while (cin>>ch && ch !='0') {
+        if (ch>='a'&& ch<='z') { freq[ch-'a']++; }
+    }
+    cout<<"Letter frequncies: \n";
+    for (int i = 0; i < 26; ++i) {
+        if (freq[i]>0)
+            cout<<char('a'+i)<<" : "<<freq[i]<<endl;  //problem 6
+    }
+
+    int v;
+    cout<<"Ente number of elements: ";
+    cin>>v;
+    int array[v];
+    cout<<"Enter numbers ";
+    for (int i = 0; i < v; ++i) {
+        cin>>array[i];
+    }
+    sort(array,array+v);
+    cout<<"Sorted array ";
+   for (int i = 0; i < v; ++i) {
+       cout<<array[i]<<" "; //problem 7
+   }
+
+   int count[7]={0};
+    for (int i=0;i<1000;i++) {
+        int die=rand()%6+1;
+        cout<<die<<endl;
+       count[die]++; }
+    cout<<"Output";
+    for (int i=1;i<=6;i++) {
+        cout<<i<<" occured "<<count[i]<<" times "<<endl;    } // problem 8
+
+    int rev;
+    cout<<"Enter number of elements in array: ";
+    cin>>rev;
+    int azz[rev];
+    cout<<"Enter array elements: ";
+    for (int i=0;i<rev;i++) {
+        cin>>azz[i];
+    }
+  Reverse(azz, rev); //problem 9
+
+     int a;
+    cout<<"enter number of elements";
+    cin>>a;
+    cout<<"enter elements";
+    int b[a];
+    for (int i=0;i<a;i++) {
+        cin>>b[i];
+    }
+    Sort(b,a);  //problem 10
+ return 0;}
