@@ -1,0 +1,269 @@
+#include <iostream>
+#include <vector>
+
+  using namespace std;
+  //problem 1
+  void inputM(int maxtrix[][100],int N, int M)
+  {
+    for(int i=0;i<N;i++)
+    { for(int j=0;j<M;j++)
+    {
+      cin>>maxtrix[i][j];
+    }}}
+  //problem 2
+  void Displaym(int maxtrix[][100],int N,int M) {
+
+    for(int i=0;i<N;i++)
+    { for(int j=0;j<M;j++)
+    {
+      cout<<maxtrix[i][j]<<" ";
+    }
+      cout<<endl; }
+  }
+  //problem 3
+  void Sum(int matrix[][100],int N, int M)
+  { int sum=0;
+    for(int i=0;i<N;i++)
+    {
+      for(int j=0;j<M;j++)
+      {
+        sum+=matrix[i][j];}}
+    cout<<sum<<endl;}
+//4 problem
+  void max(int matrix[][100],int N, int M)
+  {
+    for(int i=0;i<N;i++)
+    {
+      int max=matrix[i][0];
+      for(int j=0;j<M;j++)
+        if(matrix[i][j]>max) max=matrix[i][j];
+      cout<<max<<endl;
+    }}
+// 5 problem
+void Sum1(int matrix[][100],int N, int M)
+  {
+    for(int i=0;i<N;i++)
+    { int sum=0;
+      for(int j=0;j<M;j++) {
+        sum+=matrix[i][j];}
+    cout<<sum<<endl; }
+   }
+ //6 problem
+void diagonal(int matrix[][100], int N){
+  int sum=0;
+  for (int i=0;i<N;i++) {
+    sum += matrix[i][i];
+  }
+    cout<<sum<<endl;
+  } // 7 problem
+void Transpose(int matrix[][100],int N, int M) {
+    for (int i=0;i<M;i++) {
+      for (int j=0;j<N;j++) {
+        cout<<matrix[j][i]<<" ";
+      }
+     cout<<endl; }
+  } // 8 problem
+void addition(int matrix[][100],int matrix1[][100],int result[][100],int N,int M) {
+
+    for (int i=0;i<N;i++) {
+      for (int j=0;j<M;j++) {
+        result[i][j]=matrix[i][j]+matrix1[i][j];
+      }}
+for (int i=0;i<N;i++) {
+  for (int j=0;j<M;j++) {
+    cout<<result[i][j]<<" ";}
+    cout<<endl; }}
+
+
+
+//10
+void Multiplication(int a[][100],int b[][100],int c[][100],
+                    int n, int m,int w)
+{ for(int i=0;i<n;i++) {
+  for (int j=0;j<w;j++) {
+     c[i][j]=0;
+  for (int k=0;k<m;k++){
+    c[i][j]+=a[i][k]*b[k][j];
+   }
+  }
+}
+  for(int i=0;i<n;i++) {
+    for (int j=0;j<w;j++) {
+      cout<<c[i][j]<<" ";
+
+    }
+   cout<<endl; }}
+void transpose(int matrix[][100], int N) {
+    for (int i = 0; i < N; i++) {
+      for (int j = i; j < N; j++) {
+        // Swap elements at positions (i, j) and (j, i)
+        swap(matrix[i][j], matrix[j][i]);
+      }
+    }
+  }
+
+
+void reverseRows(int matrix[][100], int N) {
+    for (int i = 0; i < N; i++) {
+      int start = 0, end = N - 1;
+      while (start < end) {
+        swap(matrix[i][start], matrix[i][end]);
+        start++;
+        end--;
+      }
+    }
+  }
+
+
+void rotateMatrix(int matrix[][100], int N) {
+
+    transpose(matrix, N);
+
+    reverseRows(matrix, N);
+  }
+
+
+void displayMatrix(int matrix[][100], int N) {
+    for (int i = 0; i < N; i++) {
+      for (int j = 0; j < N; j++) {
+        cout << matrix[i][j] << " ";
+      }
+      cout << endl;
+    }
+  }
+int main() {
+
+  int n,m;
+  int Matrix[100][100];
+  int matrix1[100][100];
+  int result[100][100];
+  cout<<"Enter N and M";
+  cin>>n>>m;
+  cout<<"Entering elements : ";
+  inputM(Matrix,n,m); // 1
+  int q,w;
+  cout<<"\nEnter q and w for second matrix: ";
+  cin>>q>>w;
+  cout<<"\n Enter element for second matrix";
+  inputM(matrix1,q,w);
+  cout<<endl;
+  cout<<"ROW MAKING\n ";
+  Displaym(Matrix,n,m); // 2
+  cout<<endl;
+  cout<<"Sum is " ;
+  Sum(Matrix,n,m); // 3
+  cout<<endl;
+  cout<<"MAx is \n";
+  max(Matrix,n,m);// 4
+  cout<<endl;
+  cout<<"Each row sum is\n";
+  Sum1(Matrix,n,m); // 5
+  cout<<"Diagonal sum is"<<endl;
+  diagonal(Matrix,n); // 6
+  cout<<"Transpose is"<<endl;
+  Transpose(Matrix,n,m);//proble 7
+  cout<<"It should give two matrixes\n";
+  addition(Matrix,matrix1,result,n,m); //problem 8
+  cout<<"Multiplicaion below\n ";
+  Multiplication(Matrix,Matrix,result,n,m,w); //problem 9
+    cout << "Original Matrix: " << endl;
+    displayMatrix(Matrix, n);
+
+    rotateMatrix(Matrix, n);
+
+    cout << "Matrix after 90 degree rotation: " << endl;
+    displayMatrix(Matrix, n);
+
+    vector<int>numbers;
+    numbers.push_back(10);
+    numbers.push_back(20);
+    numbers.push_back(30);
+    cout<<"Vector elements: ";
+    for (int x:numbers)
+    {
+      cout<<x<<" ";
+    }
+    cout<<"\n Size: "<<numbers.size()<<endl;
+    cout<<" Capacity: "<<numbers.capacity();
+    numbers.pop_back();
+    cout<<" After pop_back, size: "<<numbers.size()<<endl;
+
+  int n;
+   vector<int>v;
+   cout<<"Enter size for vector";
+   cin>>n;
+    v.resize(n);
+  int sum=0; int max=INT_MIN;
+  cout<<"Enter "<<n<<" elements for vector";
+   for(int i=0;i<v.size();i++) {
+     cin>>v[i];
+       sum+=v[i];
+    if (v[i]>max) max=v[i];
+   }
+  for(int i=0;i<v.size();i++) {
+    cout<<v[i]<<" ";
+  } //11 problem
+    cout<<"sum is "<<sum<<endl; // 12 problem
+    cout<<" max is "<<max<<endl; // 13problem
+  int count=0; int x;
+  cout<<"Enter target";
+  cin>>x;
+  for(int i=0;i<v.size();i++) {
+    if(v[i]==x) { count++;}
+   }
+   cout<<"Targe x found "<<count<<" times\n"; // 14 problem
+//Problem 15
+    int n, x;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) cin >> v[i];
+    cin >> x;
+    for (int i = 0; i < v.size(); ) {
+      if (v[i] == x) v.erase(v.begin() + i);
+      else i++;}
+    for (int i : v)  cout << i << " ";
+
+    //Problem 16
+    int n; cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) cin >> v[i];
+    for (int i = v.size()-1; i>=0; i--) cout << v[i] << " ";
+
+        //Problem 17
+    int n, x, k; cin >> n;
+    vector<int> v(n);
+    vector<int> g(n+1);
+    for (int i = 0; i < n; i++) cin >> v[i];
+    cout<<"x = "; cin >> x;
+    cout<<"k = "; cin >> k;
+    for (int i = 0; i < n+1; i++) {
+      if (i<k) g[i] = v[i];
+      else if (i==k) g[i] = x;
+      else g[i] = v[i-1];
+      cout<<g[i]<<" ";
+                        }
+
+        //Problem 18
+    int n; cin>>n;
+    vector<int> v(n);
+    for(int i=0;i<n;i++) cin>>v[i];
+    for(int i=0;i<v.size(); i++) {
+      for(int j=i+1;j<v.size();j++) {
+        if (v[i]==v[j]) v.erase(v.begin()+j);
+      }}
+    for(int i=0;i<v.size();i++) cout<<v[i]<<" ";
+
+        //Problem 19
+    int n; cin>>n;
+    vector<int> v(n);
+    for(int i=0;i<n;i++) cin>>v[i];
+    for (int i = 0; i < n; i++) {
+      for (int j = 1; j < n; j++) {
+        if (v[j-1] > v[j]) {
+          int temp = v[j];
+          v[j] = v[j-1];
+          v[j-1] = temp;
+        }}}
+    for (int i = 0; i < n; i++) cout<<v[i]<<" ";
+
+       return 0;}
