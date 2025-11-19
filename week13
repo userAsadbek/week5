@@ -1,0 +1,118 @@
+ #include <iostream>
+    #include <vector>
+    #include <ctime>
+    using namespace std;
+
+    void swap(int *a,int *b);
+  void greet(){ cout<<"Hello frrom ,Greeting"<<endl; }
+  void bye(){ cout<<"bye"<<endl; }
+ int add(int a,int b){ return a+b;}
+ int multiply(int a,int b){ return a*b;}
+void calculate(int(*op)(int,int),int a,int b)
+  {
+      cout<<"Summing or Multiplying "<<op(a,b)<<endl;
+  }
+
+
+    int main()
+    {
+        srand(time(NULL));
+        //problem 9 lab 2;
+        int a=7,b=14,c=21;
+        int *ptrs[3]={&a,&b,&c};
+        cout<<*ptrs[0]<<endl;
+        cout<<*ptrs[1]<<endl;
+        cout<<*ptrs[2]<<endl;
+
+        //problem 10
+        int arr[5]={9,3,7,1,6};
+        int *ptr1=arr;
+           for ( int i=0; i<4; i++)
+           {
+               for (int j=1; j<5; j++)
+               {
+                   if (*(ptr1+j)<*(ptr1+j-1)){
+                       int temp = *(ptr1+j);
+                       *(ptr1+j) = *(ptr1+j-1);
+                       *(ptr1+j-1) = temp;
+                   }
+               }
+           }
+           for ( int i=0; i<5; i++)
+           {
+               cout<<*(ptr1+i)<<" ";
+           }
+
+        //problem 11
+
+            const char*suits[4]={"Hearths","Diamonds","Spades","Clubs"};
+            for(int i=0;i<4;i++)
+            {
+                cout<<*(suits+i)<<" ";
+            }
+         
+        //problem 12
+        const char* days[3]={"Mon","Tue","Wed"};
+        for (int i=0;i<3;i++)
+        {
+            cout<<*(*(days+i)+1)<<" ";
+        }
+
+        //problem 13 // combine them with 14;
+
+      string desk[4][13];
+      const  string face[13]={"Ace","TWO","THREE","FOUR","FIVE","SIX","SEVEN","EIGHT","NINE","TEN","JACK","QUEEN","KING"};
+      const string type[4]={"Hearth","Diamonds","Spades","Clubs"};
+        for(int i=0;i<4;i++)
+        {
+            for(int j=0;j<13;j++)
+            {
+                desk[i][j]=face[j]+" of "+type[i];
+
+            }
+        }
+      for(int i=0;i<6;i++)
+      {  int suits=rand()%4;
+         int faces=rand()%13;
+        cout<<desk[suits][faces]<<endl;
+      }
+
+      //problem 14;
+        const  char *face1[13]={"Ace","TWO","THREE","FOUR","FIVE","SIX","SEVEN","EIGHT","NINE","TEN","JACK","QUEEN","KING"};
+        const char *type1[4]={"Hearth","Diamonds","Spades","Clubs"};
+        for(int i=0;i<4;i++)
+        {
+            int n=rand()%+4;
+            int f=rand()%+13;
+            cout<<*(face1+f)<<" of "<<*(type1+n)<<endl;
+        }
+
+      //problem 15;
+
+        void(*ptrz)();
+          ptrz=greet;
+          ptrz();
+          ptrz=bye;
+         ptrz();
+
+    //problen 16;
+    int (*fptr)(int,int);
+      fptr=add;
+     cout<<"ADD "<<fptr(8,12)<<endl;
+      fptr=multiply;
+     cout<<"MULTIPLY "<<fptr(8,12)<<endl;
+
+      //rpoblem 17
+    int (*op)(int,int);
+      op=add;
+    calculate(op,10,20);
+
+    //problem 18
+    int (*ops[])(int,int)={add,multiply};
+    int n; cout<<"Select your choice:"; cin>>n;
+    calculate( ops[n-1],14,15);
+
+
+
+        return 0;
+    }
