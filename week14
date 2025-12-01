@@ -1,0 +1,236 @@
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+void target(int *arr,int size, int target) {
+   int *s=arr;
+
+
+    for(int i=0;i<size-1;i++) {
+        int *z= arr + i + 1;
+        for(int j=i+1;j<size;j++) {
+          if (*(s)+*(z)==target) {
+            cout<<*(s)<<"∂∂ "<< *(z)<<endl;
+          }
+            z++;
+        }
+     s++;}
+}
+void swap(int *a, int *b,int *c) {
+    int temp = *a;
+    *a = *b;
+    *b = *c;
+    *c = temp;
+}
+void BubbleSort(int arr[], int n) {
+    int temp;
+    bool swap;
+    do {
+        swap = false;
+        for (int i = 1; i < n; i++) {
+            if (arr[i] > arr[i - 1]) {
+                temp=arr[i];
+                arr[i] = arr[i - 1];
+                arr[i - 1] = temp;
+                swap = true;
+            }
+        }
+    }
+    while (swap);
+}
+void BubbleSort12(vector <int> &arr) {
+    int temp;
+    bool swap;
+    int n=arr.size();
+    do {
+        swap = false;
+        for (int i = 1; i <n; i++) {
+            if (arr[i] > arr[i - 1]) {
+                temp=arr[i];
+                arr[i] = arr[i - 1];
+                arr[i - 1] = temp;
+                swap = true;
+            }
+        }
+        n--;
+    }
+    while (swap);
+}
+void BubbleSort2(int arr[], int n) {
+    int temp;
+    bool swap;
+    do {
+        swap=false;
+        for (int i = 1; i < n; i++) {
+            if (arr[i] < arr[i - 1]) {
+                temp=arr[i];
+                arr[i] = arr[i - 1];
+                arr[i - 1] = temp;
+                swap = true;
+            }
+        }
+    }
+   while (swap);
+}
+int Sum(int *arr,int n,int k) {
+    int total=0;
+    for (int i=0;i<n;i+=k) {
+        total+=*(arr+i);
+    }
+    return total;
+
+}
+
+void removeSpaces(char *str) {
+    char *read = str;
+    char *write = str;
+
+    while (*read != '\0') {
+        if (*read != ' ') {
+            *write = *read;
+            write++;
+        }
+        read++;
+    }
+    *write = '\0';
+}
+
+// TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+int main() {
+// //problem 1
+// int a=3,b=7,c=10;
+// cout<<a<<" "<<b<<" "<<c<<endl;
+// swap(&a,&b,&c);
+// cout<<a<<" "<<b<<" "<<c<<endl;
+// //problem 2 and 3
+// int arr[5]={5,45,76,44,55};
+// BubbleSort(arr,5);
+//  cout<<"Descending: ";
+// for(int i=0;i<5;i++) {
+//     cout<<arr[i]<<" ";
+// } cout<<endl;
+// BubbleSort2(arr,5);
+// cout<<"Ascending: ";
+//  for(int i=0;i<5;i++) {
+//      cout<<arr[i]<<" ";
+//  }
+//  //problem 4
+//  cout<<endl;
+//  int arr2[5]={5,45,76,44,55};
+//  cout<<"Enter jump";
+//  int k; cin>>k;
+//  int total=arr[k]=Sum(arr,5,k);
+//  cout<<total<<" is Sum  "<<endl;
+//
+//  //problem 5
+// vector <int> v;
+// v.push_back(10);
+// v.push_back(20);
+// v.push_back(30);
+// BubbleSort12(v);
+//  for(int i=0;i<v.size();i++) {
+//      cout<<v[i]<<" ";
+//  }
+//  cout<<"Enter value to push back ";
+//  int val;
+//  cin>>val;
+//  v.push_back(val);
+//  BubbleSort12(v);
+//  for(int i=0;i<v.size();i++) {
+//      cout<<v[i]<<" ";
+//  }
+//  //problem  6
+
+ // int arr[5]={2,3,5,1,4};
+ // int target1;
+ // cout<<"Enter target";
+ // cin>>target1;
+ // target(arr,5,target1);
+
+ //problem 7
+
+    // int m, n;
+    // cout << "Enter number of rows (m): ";
+    // cin >> m;
+    // cout << "Enter number of columns (n): ";
+    // cin >> n;
+    //
+    // int **matrix = new int*[m];
+    // for (int i = 0; i < m; i++) {
+    //     matrix[i] = new int[n];
+    // }
+    //
+    // cout << "Enter elements of the matrix:\n";
+    // for (int i = 0; i < m; i++) {
+    //     for (int j = 0; j < n; j++) {
+    //         cin >> matrix[i][j];
+    //     }
+    // }
+    // cout << "\nOriginal Matrix:\n";
+    // for (int i = 0; i < m; i++) {
+    //     for (int j = 0; j < n; j++) {
+    //         cout << matrix[i][j] << " ";
+    //     }
+    //     cout << endl;
+    // }
+    // int **transpose = new int*[n];
+    // for (int i = 0; i < n; i++) {
+    //     transpose[i] = new int[m];
+    // }
+    // for (int i = 0; i < m; i++) {
+    //     for (int j = 0; j < n; j++) {
+    //         transpose[j][i] = matrix[i][j];
+    //     }
+    // }
+    // cout << "\nTranspose Matrix:\n";
+    // for (int i = 0; i < n; i++) {
+    //     for (int j = 0; j < m; j++) {
+    //         cout << transpose[i][j] << " ";
+    //     }
+    //     cout << endl;
+    // }
+    // for (int i = 0; i < m; i++) delete[] matrix[i];
+    // delete[] matrix;
+    //
+    // for (int i = 0; i < n; i++) delete[] transpose[i];
+    // delete[] transpose;
+
+
+    char str[100];
+    cout << "Enter a string: ";
+    cin.getline(str, 100);
+    removeSpaces(str);
+    cout << "String without spaces: " << str << endl;
+
+
+    return 0;
+    // TIP See CLion help at <a href="https://www.jetbrains.com/help/clion/">jetbrains.com/help/clion/</a>. Also, you can try interactive lessons for CLion by selecting 'Help | Learn IDE Features' from the main menu.
+}
+
+
+
+//     const int maxSize = 10;
+//     int arr[maxSize] = {30, 20, 10};  // already sorted descending
+//     int n = 3;                         // current number of elements
+//
+//     cout << "Enter value to insert: ";
+//     int val;
+//     cin >> val;
+//
+//     // Insert val while keeping descending order
+//     int i = n - 1;
+//     while (i >= 0 && arr[i] < val) {
+//         arr[i + 1] = arr[i];  // shift element to the right
+//         i--;
+//     }
+//     arr[i + 1] = val;  // insert value
+//     n++;               // increase size
+//
+//     // Print the array
+//     for (int j = 0; j < n; j++) {
+//         cout << arr[j] << " ";
+//     }
+//
+//     return 0;
+// }
